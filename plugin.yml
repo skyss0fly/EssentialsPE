@@ -326,9 +326,6 @@ permissions:
                     essentials.ptime.other:
                         default: op
                         description: "Change other's time"
-            essentials.pvp:
-                default: op
-                description: "Toggle PvP on/off"
             essentials.realname:
                 default: op
                 description: "See a player's realname"
