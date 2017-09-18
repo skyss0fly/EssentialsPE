@@ -34,14 +34,14 @@ class SetHome extends BaseCommand{
             $sender->sendMessage(TextFormat::RED . "[Error] You can only set a \"bed\" home by sleeping in a bed");
             return false;
         }elseif(trim($args[0] === "")){
-            $sender->sendMessage(TextFormat::RED . "[Error] Please provide a Home name");
+            $sender->sendMessage(TextFormat::RED . "[Error] §6Please provide a Home name");
             return false;
         }
         if(!$this->getAPI()->setHome($sender, strtolower($args[0]), $sender->getLocation(), $sender->getYaw(), $sender->getPitch())){
-            $sender->sendMessage(TextFormat::RED . "Invalid home name given! Please be sure to only use alphanumerical characters and underscores");
+            $sender->sendMessage(TextFormat::RED . "§eInvalid home name given! Please be sure to only use alphanumerical characters and underscores");
             return false;
         }
-        $sender->sendMessage(TextFormat::GREEN . "Home successfully " . ($this->getAPI()->homeExists($sender, $args[0]) ? "updated" : "created"));
+        $sender->sendMessage(TextFormat::GREEN . "§bHome successfully " . ($this->getAPI()->homeExists($sender, $args[0]) ? "updated" : "created"));
         return true;
     }
 } 
