@@ -34,7 +34,7 @@ class Heal extends BaseCommand{
         }
         $player = $sender;
         if(isset($args[0]) && !($player = $this->getAPI()->getPlayer($args[0]))){
-            $sender->sendMessage(TextFormat::RED . "[Error] Player not found");
+            $sender->sendMessage(TextFormat::RED . "[Error] §6This player cannot be found");
             return false;
         }
         if($player->getName() !== $sender->getName() && !$sender->hasPermission("essentials.heal.other")) {
@@ -43,9 +43,9 @@ class Heal extends BaseCommand{
         }
         $player->heal(new EntityRegainHealthEvent($player, $player->getMaxHealth() - $player->getHealth(), EntityRegainHealthEvent::CAUSE_CUSTOM));
         $player->getLevel()->addParticle(new HeartParticle($player->add(0, 2), 4));
-        $player->sendMessage(TextFormat::GREEN . "You have been healed!");
+        $player->sendMessage(TextFormat::GREEN . "§bYou have been healed succesfully!");
         if($player !== $sender){
-            $sender->sendMessage(TextFormat::GREEN . $player->getDisplayName() . " has been healed!");
+            $sender->sendMessage(TextFormat::GREEN . $player->getDisplayName() . " §bhas been healed!");
         }
         return true;
     }
