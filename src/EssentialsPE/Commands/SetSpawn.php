@@ -32,8 +32,8 @@ class SetSpawn extends BaseCommand{
         }
         $sender->getLevel()->setSpawnLocation($sender);
         $sender->getServer()->setDefaultLevel($sender->getLevel());
-        $sender->sendMessage(TextFormat::YELLOW . "Server's spawn point changed!");
-        $this->getAPI()->getServer()->getLogger()->info(TextFormat::YELLOW . "Server's spawn point set to " . TextFormat::AQUA . $sender->getLevel()->getName() . TextFormat::YELLOW . " by " . TextFormat::GREEN . $sender->getName());
+        $sender->sendMessage(TextFormat::YELLOW . "§bSpawn set succesfully.");
+        $this->getAPI()->getServer()->getLogger()->info(TextFormat::YELLOW . "§bSpawn point set to " . TextFormat::AQUA . $sender->getLevel()->getName() . TextFormat::YELLOW . " by " . TextFormat::GREEN . $sender->getName());
         return true;
     }
 }
