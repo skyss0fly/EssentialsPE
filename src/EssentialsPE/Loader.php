@@ -25,7 +25,6 @@ use EssentialsPE\Commands\Feed;
 use EssentialsPE\Commands\Extinguish;
 use EssentialsPE\Commands\Fly;
 use EssentialsPE\Commands\GetPos;
-use EssentialsPE\Commands\God;
 use EssentialsPE\Commands\Heal;
 use EssentialsPE\Commands\Home\DelHome;
 use EssentialsPE\Commands\Home\Home;
@@ -48,7 +47,6 @@ use EssentialsPE\Commands\Ping;
 use EssentialsPE\Commands\PowerTool\PowerTool;
 use EssentialsPE\Commands\PowerTool\PowerToolToggle;
 use EssentialsPE\Commands\PTime;
-use EssentialsPE\Commands\PvP;
 use EssentialsPE\Commands\RealName;
 use EssentialsPE\Commands\Repair;
 use EssentialsPE\Commands\Reply;
@@ -150,7 +148,6 @@ class Loader extends PluginBase{
             new Extinguish($this->getAPI()),
             new Fly($this->getAPI()),
             new GetPos($this->getAPI()),
-            new God($this->getAPI()),
             //new Hat($this->getAPI()), TODO: Implement when MCPE implements "Block-Hat rendering"
             new Heal($this->getAPI()),
             new ItemCommand($this->getAPI()),
@@ -167,7 +164,6 @@ class Loader extends PluginBase{
             new Ping($this->getAPI()),
             new Feed($this->getAPI()),
             new PTime($this->getAPI()),
-            new PvP($this->getAPI()),
             new RealName($this->getAPI()),
             new Repair($this->getAPI()),
             new Seen($this->getAPI()),
