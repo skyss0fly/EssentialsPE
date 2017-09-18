@@ -31,12 +31,12 @@ class TPHere extends BaseCommand{
             return false;
         }
         if(!($player = $this->getAPI()->getPlayer($args[0]))){
-            $sender->sendMessage(TextFormat::RED . "[Error] Player not found");
+            $sender->sendMessage(TextFormat::RED . "[Error] §6This player cannot be found.");
             return false;
         }
         $player->teleport($sender);
-        $player->sendMessage(TextFormat::YELLOW . "Teleporting to " . $sender->getDisplayName() . "...");
-        $sender->sendMessage(TextFormat::YELLOW . "Teleporting " . $player->getDisplayName() . " to you...");
+        $player->sendMessage(TextFormat::YELLOW . "§bTeleporting to§3 " . $sender->getDisplayName() . "...");
+        $sender->sendMessage(TextFormat::YELLOW . "§bTeleporting§3 " . $player->getDisplayName() . " §bto you...");
         return true;
     }
 } 
