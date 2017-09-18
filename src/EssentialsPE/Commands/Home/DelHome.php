@@ -31,11 +31,11 @@ class DelHome extends BaseCommand{
             return false;
         }
         if(!$this->getAPI()->homeExists($sender, $args[0])){
-            $sender->sendMessage(TextFormat::RED . "[Error] Home doesn't exist");
+            $sender->sendMessage(TextFormat::RED . "[Error] This Home doesn't exist");
             return false;
         }
         $this->getAPI()->removeHome($sender, $args[0]);
-        $sender->sendMessage(TextFormat::GREEN . "Home successfully removed!");
+        $sender->sendMessage(TextFormat::GREEN . "§bThe home you entered has been successfully removed / deleted!");
         return true;
     }
 } 
