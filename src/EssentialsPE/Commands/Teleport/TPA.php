@@ -40,7 +40,7 @@ class TPA extends BaseCommand{
         }
         $this->getAPI()->requestTPTo($sender, $player);
         $player->sendMessage(TextFormat::AQUA . $sender->getName() . TextFormat::GREEN . " §bwants to teleport to you, please use:\n§3/tpaccept | /tpyes - §bto accept the request.\n§3/tpdeny | /tpno - §bto deny the invitation");
-        $sender->sendMessage(TextFormat::GREEN . "§bTeleport request sent to " . $player->getDisplayName() . "Succesfully!");
+        $sender->sendMessage(TextFormat::GREEN . "§bTeleport request sent to§3 " . $player->getDisplayName() . "§bSuccesfully!");
         return true;
     }
 } 
