@@ -32,14 +32,14 @@ class Home extends BaseCommand{
         }
         if(count($args) === 0){
             if(($list = $this->getAPI()->homesList($sender, false)) === false){
-                $sender->sendMessage(TextFormat::AQUA . "You don't have any home yet. §dWant to set a home? Please do: /sethome <name>");
+                $sender->sendMessage(TextFormat::AQUA . "§5You don't have any home yet. §dWant to set a home? Please do: /sethome <name>");
                 return false;
             }
             $sender->sendMessage(TextFormat::AQUA . "§aThese are your available homes:§2\n" . $list);
             return true;
         }
         if(!($home = $this->getAPI()->getHome($sender, $args[0]))){
-            $sender->sendMessage(TextFormat::RED . "[Error] I'm sorry, but your home name doesn't exists or the world is not available");
+            $sender->sendMessage(TextFormat::RED . "[Error] §6I'm sorry, but your home name doesn't exists or the world is not available");
             return false;
         }
         $sender->teleport($home);
