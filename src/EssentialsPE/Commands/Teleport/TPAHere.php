@@ -31,16 +31,16 @@ class TPAHere extends BaseCommand{
             return false;
         }
         if(!($player = $this->getAPI()->getPlayer($args[0]))){
-            $sender->sendMessage(TextFormat::RED . "[Error] Player not found");
+            $sender->sendMessage(TextFormat::RED . "[Error] §6This player cannot be found");
             return false;
         }
         if($player->getName() === $sender->getName()){
-            $sender->sendMessage(TextFormat::RED . "[Error] You can't teleport to yourself");
+            $sender->sendMessage(TextFormat::RED . "[Error] §6You can't teleport to yourself");
             return false;
         }
         $this->getAPI()->requestTPHere($sender, $player);
-        $player->sendMessage(TextFormat::AQUA . $sender->getName() . TextFormat::GREEN . " wants you to teleport to him, please use:\n/tpaccept to accepts the request\n/tpdeny to decline the invitation");
-        $sender->sendMessage(TextFormat::GREEN . "Teleport request sent to " . $player->getDisplayName(). "!");
+        $player->sendMessage(TextFormat::AQUA . $sender->getName() . TextFormat::GREEN . " §bwants you to teleport to them, please use:\n§3/tpaccept | /tpyes - §bto accepts the request\n§3/tpdeny | /tpno - to §bdecline the invitation");
+        $sender->sendMessage(TextFormat::GREEN . "§bTeleport request sent to§3 " . $player->getDisplayName(). "§bSuccesfully!");
         return true;
     }
 } 
