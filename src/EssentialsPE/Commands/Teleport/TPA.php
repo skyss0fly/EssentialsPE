@@ -31,16 +31,16 @@ class TPA extends BaseCommand{
             return false;
         }
         if(!($player = $this->getAPI()->getPlayer($args[0]))){
-            $sender->sendMessage(TextFormat::RED . "[Error] Player not found");
+            $sender->sendMessage(TextFormat::RED . "[Error] §6This Player cannot be found");
             return false;
         }
         if($player->getName() === $sender->getName()){
-            $sender->sendMessage(TextFormat::RED . "[Error] You can't teleport to yourself");
+            $sender->sendMessage(TextFormat::RED . "[Error] §6You can't teleport to yourself. Try adding a player's name, but not your name.");
             return false;
         }
         $this->getAPI()->requestTPTo($sender, $player);
-        $player->sendMessage(TextFormat::AQUA . $sender->getName() . TextFormat::GREEN . " wants to teleport to you, please use:\n/tpaccept to accepts the request\n/tpdeny to decline the invitation");
-        $sender->sendMessage(TextFormat::GREEN . "Teleport request sent to " . $player->getDisplayName() . "!");
+        $player->sendMessage(TextFormat::AQUA . $sender->getName() . TextFormat::GREEN . " §bwants to teleport to you, please use:\n§3/tpaccept | /tpyes - §bto accept the request.\n§3/tpdeny | /tpno - §bto deny the invitation");
+        $sender->sendMessage(TextFormat::GREEN . "§bTeleport request sent to " . $player->getDisplayName() . "Succesfully!");
         return true;
     }
 } 
