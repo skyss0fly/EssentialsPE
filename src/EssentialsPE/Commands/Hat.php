@@ -24,7 +24,7 @@ class Hat extends BaseCommand{
 	 *
 	 * @return bool
 	 */
-    public function execute(CommandSender $sender, string $alias, array $args): bool{
+    public function execute(CommandSender $sender, $alias, array $args) {
         if(!$this->testPermission($sender)){
             return false;
         }
