@@ -3,10 +3,8 @@ namespace EssentialsPE\BaseFiles;
 
 use EssentialsPE\Events\PlayerAFKModeChangeEvent;
 use EssentialsPE\Events\PlayerFlyModeChangeEvent;
-use EssentialsPE\Events\PlayerGodModeChangeEvent;
 use EssentialsPE\Events\PlayerMuteEvent;
 use EssentialsPE\Events\PlayerNickChangeEvent;
-use EssentialsPE\Events\PlayerPvPModeChangeEvent;
 use EssentialsPE\Events\PlayerUnlimitedModeChangeEvent;
 use EssentialsPE\Events\PlayerVanishEvent;
 use EssentialsPE\Events\SessionCreateEvent;
@@ -272,7 +270,7 @@ class BaseAPI{
             $task = $this->getServer()->getScheduler()->scheduleDelayedTask(new AFKKickTask($this, $player), $time * 20);
             $this->getSession($player)->setAFKKickTaskID($task->getTaskId());
         }
-        $player->sendMessage(TextFormat::YELLOW . "You're " . ($this->isAFK($player) ? "now" : "no longer") . " AFK");
+        $player->sendMessage(TextFormat::YELLOW . "§bYou're " . ($this->isAFK($player) ? "§2now" : "§3no longer") . " §bAFK");
         if($ev->getBroadcast()){
             $this->broadcastAFKStatus($player);
         }
@@ -331,7 +329,7 @@ class BaseAPI{
         if(!$this->getEssentialsPEPlugin()->getConfig()->getNested("afk.broadcast")){
             return;
         }
-        $message = TextFormat::YELLOW . $player->getDisplayName() . " is " . ($this->isAFK($player) ? "now" : "no longer") . " AFK";
+        $message = TextFormat::YELLOW . $player->getDisplayName() . " §bis " . ($this->isAFK($player) ? "§2now" : "§3no longer") . " §bAFK";
         $this->getServer()->getLogger()->info($message);
         foreach($this->getServer()->getOnlinePlayers() as $p){
             if($p !== $player){
@@ -799,49 +797,6 @@ class BaseAPI{
         }
     }
 
-    /**   _____           _
-     *   / ____|         | |
-     *  | |  __  ___   __| |
-     *  | | |_ |/ _ \ / _` |
-     *  | |__| | (_) | (_| |
-     *   \_____|\___/ \__,_|
-     */
-
-    /**
-     * Tell if a player is in God Mode
-     *
-     * @param Player $player
-     * @return bool
-     */
-    public function isGod(Player $player): bool{
-        return $this->getSession($player)->isGod();
-    }
-
-    /**
-     * Set the God Mode on or off
-     *
-     * @param Player $player
-     * @param bool $state
-     * @return bool
-     */
-    public function setGodMode(Player $player, bool $state): bool{
-        $this->getServer()->getPluginManager()->callEvent($ev = new PlayerGodModeChangeEvent($this, $player, $state));
-        if($ev->isCancelled()){
-            return false;
-        }
-        $this->getSession($player)->setGod($ev->getGodMode());
-        return true;
-    }
-
-    /**
-     * Switch God Mode on/off automatically
-     *
-     * @param Player $player
-     */
-    public function switchGodMode(Player $player){
-        $this->setGodMode($player, !$this->isGod($player));
-    }
-
     /**  _    _
      *  | |  | |
      *  | |__| | ___  _ __ ___   ___ ___
@@ -1186,7 +1141,7 @@ class BaseAPI{
             $message
         );
         if(strpos($message, "§") !== false && ($player instanceof Player) && !$player->hasPermission("essentials.colorchat") && !$force){
-            $player->sendMessage(TextFormat::RED . "You can't chat using colors!");
+            $player->sendMessage(TextFormat::RED . "§6I'm sorry, but you can't chat using colors!");
             return false;
         }
         return $message;
@@ -1658,49 +1613,7 @@ class BaseAPI{
         $this->getSession($player)->disablePowerTool();
     }
 
-    /**  _____        _____
-     *  |  __ \      |  __ \
-     *  | |__) __   _| |__) |
-     *  |  ___/\ \ / |  ___/
-     *  | |     \ V /| |
-     *  |_|      \_/ |_|
-     */
-
-    /**
-     * Tell if the PvP mode is enabled for the specified player, or not
-     *
-     * @param Player $player
-     * @return bool
-     */
-    public function isPvPEnabled(Player $player): bool{
-        return $this->getSession($player)->isPVPEnabled();
-    }
-
-    /**
-     * Set the PvP mode on or off
-     *
-     * @param Player $player
-     * @param bool $state
-     * @return bool
-     */
-    public function setPvP(Player $player, bool $state): bool{
-        $this->getServer()->getPluginManager()->callEvent($ev = new PlayerPvPModeChangeEvent($this, $player, $state));
-        if($ev->isCancelled()){
-            return false;
-        }
-        $this->getSession($player)->setPvP($ev->getPvPMode());
-        return true;
-    }
-
-    /**
-     * Switch the PvP mode on/off automatically
-     *
-     * @param Player $player
-     */
-    public function switchPvP(Player $player){
-        $this->setPvP($player, !$this->isPvPEnabled($player));
-    }
-
+    
     /**   _____              _
      *   / ____|            (_)
      *  | (___   ___ ___ ___ _  ___  _ __  ___
