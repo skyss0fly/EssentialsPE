@@ -503,9 +503,9 @@ permissions:
                     essentials.spawn.other:
                         default: op
                         description: "Teleport others to the server's main spawn"
-             essentials.speed:
-                 default: false
-                 description: "Allows you to speed up your player."
+            essentials.speed:
+                default: false
+                description: "Allows you to speed up your player."
             essentials.sudo:
                 default: false
                 description: "Run a command as another player"
