@@ -40,7 +40,7 @@ class GetPos extends BaseCommand{
                 return false;
             }
         }
-        $sender->sendMessage(TextFormat::GREEN . ($player === $sender ? "You're " : $player->getDisplayName() . TextFormat::GRAY . "is") . "in world: " . TextFormat::AQUA . $player->getLevel()->getName() . "\n" . TextFormat::GREEN . "Coordinates: " . TextFormat::YELLOW . "X: " . TextFormat::AQUA . $player->getFloorX() . TextFormat::GREEN . ", " . TextFormat::YELLOW . "Y: " . TextFormat::AQUA . $player->getFloorY() . TextFormat::GREEN . ", " . TextFormat::YELLOW . "Z: " . TextFormat::AQUA . $player->getFloorZ());
+        $sender->sendMessage(TextFormat::GREEN . ($player === $sender ? "§bThe Player§3 " : $player->getDisplayName() . TextFormat::GRAY . "§bis ") . "§bin the world: " . TextFormat::AQUA . $player->getLevel()->getName() . "\n" . TextFormat::GREEN . "§6Coordinates: " . TextFormat::YELLOW . "§aX: " . TextFormat::AQUA . $player->getFloorX() . TextFormat::GREEN . ", " . TextFormat::YELLOW . "§bY: " . TextFormat::AQUA . $player->getFloorY() . TextFormat::GREEN . ", " . TextFormat::YELLOW . "§cZ: " . TextFormat::AQUA . $player->getFloorZ());
         return true;
     }
 }
