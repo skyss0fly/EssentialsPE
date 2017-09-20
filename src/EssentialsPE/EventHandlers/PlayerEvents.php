@@ -3,8 +3,6 @@
 namespace EssentialsPE\EventHandlers;
 
 use EssentialsPE\BaseFiles\BaseEventHandler;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
-use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityLevelChangeEvent;
 use pocketmine\event\entity\EntityTeleportEvent;
 use pocketmine\event\player\PlayerBedEnterEvent;
@@ -163,33 +161,7 @@ class PlayerEvents extends BaseEventHandler{
             $this->getAPI()->setHome($event->getPlayer(), "bed", $event->getPlayer()->getPosition());
         }
     }
-
-    /**
-     * @param EntityDamageEvent $event
-     *
-     * @priority HIGH
-     */
-    public function onEntityDamageByEntity(EntityDamageEvent $event){
-        $victim = $event->getEntity();
-        if($victim instanceof Player){
-            if($this->getAPI()->isGod($victim) || ($this->getAPI()->isAFK($victim) && $this->getPlugin()->getConfig()->getNested("afk.safe"))){
-                $event->setCancelled(true);
-            }
-
-            if($event instanceof EntityDamageByEntityEvent){
-                $issuer = $event->getDamager();
-                if($issuer instanceof Player){
-                    if(!($s = $this->getAPI()->isPvPEnabled($issuer)) || !$this->getAPI()->isPvPEnabled($victim)){
-                        $issuer->sendMessage(TextFormat::RED . (!$s ? "You have" : $victim->getDisplayName() . " has") . " PvP disabled!");
-                        $event->setCancelled(true);
                     }
-
-                    if($this->getAPI()->isGod($issuer) && !$issuer->hasPermission("essentials.god.pvp")){
-                        $event->setCancelled(true);
-                    }
-
-                    if($this->getAPI()->isVanished($issuer) && !$issuer->hasPermission("essentials.vanish.pvp")){
-                        $event->setCancelled(true);
                     }
                 }
             }
