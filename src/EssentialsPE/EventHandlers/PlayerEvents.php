@@ -161,11 +161,6 @@ class PlayerEvents extends BaseEventHandler{
             $this->getAPI()->setHome($event->getPlayer(), "bed", $event->getPlayer()->getPosition());
         }
     }
-                    }
-                }
-            }
-        }
-    }
 
     /**
      * @param PlayerDeathEvent $event
