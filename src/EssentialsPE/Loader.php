@@ -82,7 +82,7 @@ class Loader extends PluginBase{
     /** @var BaseAPI */
     private $api;
 
-    public function onEnable(){
+    public function onEnable(): void{
         if($this->getConfig()->get("enable") === false) {
            $this->setEnabled(false);
         }
@@ -111,7 +111,7 @@ class Loader extends PluginBase{
         $this->getAPI()->scheduleAutoAFKSetter();
     }
 
-    public function onDisable(){
+    public function onDisable(): void{
         if(count($l = $this->getServer()->getOnlinePlayers()) > 0){
             $this->getAPI()->removeSession($l);
         }
