@@ -1,5 +1,5 @@
 name: EssentialsPE
-main: skyss0fly\EssentialsPE\Loader
+main: EssentialsPE\Loader
 version: 2.1.0
 api: 5.0.0
 author: skyss0fly
