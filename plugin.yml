@@ -7,26 +7,26 @@ website: https://github.com/LegendOfMCPE/EssentialsPE
 
 permissions:
     essentials:
-        default: false
-        description: "Allow to access to every EssentialsPE feature"
+     default: false
+     description: "Allow to access to every EssentialsPE feature"
     essentials.ban:
-      default: false
-      description: "Ban utilities nodes"
+     default: false
+     description: "Ban utilities nodes"
     essentials.ban.exempt:
-      default: op
-      description: "Prevent the player from being banned"
+     default: op
+     description: "Prevent the player from being banned"
     essentials.colorchat:
-      default: op
-      description: "Allow to chat using colors!"
+     default: op
+     description: "Allow to chat using colors!"
     essentials.afk:
-      default: false
-      description: "Toggle the AFK status"         
+     default: false
+     description: "Toggle the AFK status"         
     essentials.afk.use:
-      default: true
-      description: "Change self AFK status"
+     default: true
+     description: "Change self AFK status"
     essentials.afk.other:
-      default: op
-      description: "Change other's AFK status"
+     default: op
+     description: "Change other's AFK status"
     essentials.afk.preventauto:
      default: op
      description: "Players with this permission will NOT be put into AFK after a period of inaction"
