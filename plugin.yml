@@ -547,7 +547,7 @@ permissions:
      default: false
      description: "Teleport to a warp"
   essentials.warp.use:
-        default: true
+     default: true
      description: "Teleport to a warp"
   essentials.warp.other:
      default: op
