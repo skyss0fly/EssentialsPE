@@ -1,9 +1,8 @@
 name: EssentialsPE
-main: EssentialsPE\Loader
+main: skyss0fly\EssentialsPE\Loader
 version: 2.1.0
 api: 5.0.0
-author: LegendsOfMCPE Team
-website: https://github.com/LegendOfMCPE/EssentialsPE
+author: skyss0fly
 
 permissions:
   essentials:
